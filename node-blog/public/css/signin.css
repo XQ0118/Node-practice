@@ -1,0 +1,94 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #F5F5F5FF;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .checkbox {
+    font-weight: 400;
+}
+
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-signin .btn  {
+    margin-top: 15px;
+
+}
+
+.form-signin .title-email {
+    float: left;
+}
+
+.form-signin .title-pass {
+    float: left;
+
+}
+
+.pass-line .label-link {
+    float: right;
+    font-size: 14px;
+}
+
+.form-signin .pass-line {
+    margin-top: 10px;
+}
+
+.form-signin .sr-only {
+    margin-bottom: -5px;
+}
+
+.message {
+    width: 100%;
+    min-width: 100%;
+    height: 45px;
+    margin-top: 15px;
+    border: 1px solid #CED4DAFF;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    line-height: 40px;
+
+}

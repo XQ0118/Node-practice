@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Signin Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="/public/css/register.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+    <div class="form-signin">
+        <a href="/"><img class="mb-4" src="/public/img/dfmz.png"  width="72" height="72"></a>
+        <h1 class="h3 mb-3 font-weight-normal">Please register in</h1>
+        <div class="mainbox">
+            <form  id="register_form">
+                <label for="email" class="h6 title-email">Email</label>
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+                <label for="nickname" class="h6 title-nickname">Nickname</label>
+                <label for="inputNickname" class="sr-only">Nickname</label>
+                <input type="text" id="nickname" name="nickname" class="form-control" placeholder="Nickname" required autofocus>
+                <label for="password" class="h6 title-pass">Password </label>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+              
+                <button type="submit" class="btn btn-lg btn-primary btn-block" >Register in</button>
+            </form>
+            <!-- <button  class="btn btn-lg btn-success btn-block" href="/register"><small>点击创建</small></button> -->
+        </div>
+        <div class="message">
+            <p class="">已有账号? <a href="/login">点击登录</a>.
+            </p>
+        </div>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </div>
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+    	$('#register_form').on('submit', function (e) {
+    		e.preventDefault();
+    		//阻止默认事件
+    		var formData = $(this).serialize();
+    		//表单序列化
+
+    		$.ajax({
+    			url: '/register',
+    			type: 'post',
+    			data: formData,
+    			dataType: 'json',
+    			success: function(data){
+    				console.log(data);
+                    var err_code = data.err_code;
+                    if(err_code === 0){
+                        window.alert('注册成功.');
+                        window.location.href = '/';
+                    }else if(err_code === 1 ){
+                        window.alert('邮箱或者昵称已存在.');
+                    }else if(err_code === 500){
+                        window.alert('服务器忙，请稍后重试.');
+                    }
+    			}
+    		});
+
+    	});
+    </script>
+</body>
+
+</html>

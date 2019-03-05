@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Signin Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="/public/css/signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+    <div class="form-signin">
+        <a href="/"><img class="mb-4" src="/public/img/dfmz.png"  width="72" height="72"></a>
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <div class="mainbox">
+            <form id="login_form">
+                <label for="email" class="h6 title-email">Email</label>
+                <label for="" class="sr-only">Email address</label>
+                <input type="email"  name="email" class="form-control" placeholder="Email address" required autofocus>
+                <div class="pass-line">
+                    <label for="password" class="h6 title-pass">Password </label>
+                    <a class="label-link" href="/#">Forgot password?</a>
+                </div>
+                <label for="" class="sr-only">Password</label>
+                <input type="password"  name="password" class="form-control" placeholder="Password" required>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+            <!-- <button  class="btn btn-lg btn-success btn-block" href="/register"><small>点击创建</small></button> -->
+        </div>
+        <div class="message">
+            <p class="">New to GitHub? <a href="/register">Create an account</a>.
+        </p>
+        </div>
+        
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </div>
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $('#login_form').on('submit', function (e) {
+            e.preventDefault();
+            //阻止默认事件
+            var formData = $(this).serialize();
+            //表单序列化
+
+            console.log(formData);
+
+            $.ajax({
+                url: '/login',
+                type: 'post',
+                data: formData,
+                dataType: 'json',
+                success: function(data){
+                    console.log(data);
+                    var err_code = data.err_code;
+                    if(err_code === 0){
+                        window.alert('登录成功.');
+                        window.location.href = '/';
+                    }else if(err_code === 1 ){
+                        window.alert('邮箱或者昵称错误.');
+                    }else if(err_code === 500){
+                        window.alert('服务器忙，请稍后重试.');
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>

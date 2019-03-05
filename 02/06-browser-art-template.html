@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Art-template</title>
+</head>
+<body>
+	<!-- 在浏览器中要引用这个文件 -->
+	<script src="node_modules/art-template/lib/template-web.js"></script>
+	<script type="text/template" id="tpl">
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<title>Document</title>
+		</head>
+		<body>
+			<p>Hello {{ name }}</p>
+			<p>我今年 {{ age }}</p>
+			<p>我来自 {{ pro }}</p>
+			<h1>我喜欢 {{ each hobbies }} {{ $value }} {{/each}}</h1>
+		</body>
+		</html>
+	</script>
+	<script >
+		var ret = template('tpl', {
+			name: 'Jack',
+			age: 20,
+			pro: '四川省',
+			hobbies: [
+				'sports',
+				'music',
+				'football'
+			]
+		});
+		console.log(ret);
+	</script>
+</body>
+</html>

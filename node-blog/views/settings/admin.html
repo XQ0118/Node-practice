@@ -1,0 +1,19 @@
+{{ extend './_layouts/home.html' }}
+{{ block 'title'}}{{ '多人博客 — 首页'}}{{ /block }}
+{{ block 'head' }}
+<style>
+body {
+    background: red;
+}
+</style>
+{{ /block}}
+{{ block 'body' }}
+<div>
+    <h1>admin账户设置 页面填写内容</h1>
+</div>
+{{ /block}}
+{{ block 'script' }}
+<script>
+window.alert('index页面自己的 js 脚本');
+</script>
+{{ /block}}

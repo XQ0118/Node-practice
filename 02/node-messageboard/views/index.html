@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>留言板</title>
+    <style>
+    	.container{
+    		margin-top: 10px;
+    	}
+    </style>
+<!-- 浏览器在收到HTML响应内容之后，从上到下依次解析，在解析过程中 
+	如果遇到：
+	link，script，img，audio，等具有src或者link的href属性的时候
+	浏览器会自动对这些静态资源发起新的请求
+
+
+    /public/xxx
+-->
+    <link rel="stylesheet" href="/public/lib/bootstrap/css/bootstrap.min.css">
+  </head>
+  <body>
+	<div class="header container">
+		<div class="page-header">
+			<h1>Example page header <small>Subtext for header</small></h1>
+			<a class="btn btn-success" href="/post">发表留言</a>
+		</div>
+	</div>
+
+	<div class="comments container">
+		<ul class="list-group">
+			<!-- <li class="list-group-item">AAAAAAAAAAAAAAAAAA</li>
+			<li class="list-group-item">BBBBBBBBBBBBB</li>
+			<li class="list-group-item">CCCCCCCCC</li>
+			<li class="list-group-item">DDDDDDDDDDDDDDDDDD</li>
+			<li class="list-group-item">EEEEEEEEEEEEF</li>
+			<li class="list-group-item">FFFFFFFFFFFFF</li>
+			<li class="list-group-item">GGGGGGGGGGGGG</li>
+			<li class="list-group-item">HHHHHHHHHHHHHHHHHH</li>
+			<li class="list-group-item">IIIIIIIIIIIIII</li>
+			<li class="list-group-item">JJJJJJJ</li>
+			<li class="list-group-item">KKKKKKKKKKKKKKKKK</li>
+			<li class="list-group-item">LLLLLLLLLLLLL</li>
+			<li class="list-group-item">MMMMMMMMM</li>
+			<li class="list-group-item">NNNNNNNNNNNNNS</li> -->
+		
+		{{each comments}}
+		<li class="list-group-item">
+			{{ $value.name }}说: 
+			{{ $value.message }}
+			<span class="float-right">{{ $value.dateTime }}</span>
+		</li>
+		{{/each}}
+		</ul>
+	</div>
+
+  </body>
+</html>

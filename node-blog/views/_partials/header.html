@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    {{ if user }}
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand " href="#">
+            <img src="/public/img/dfmz.png" style="width: 40px;height: 40px;">
+    </a>
+        <a class="navbar-brand" href="#">Hidden brand</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">当前用户: {{ user.nickname }}</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">当前用户: {{ user.nickname }}</a>
+                    <a class="dropdown-item" href="#">个人主页</a>
+                    <a class="dropdown-item" href="/settings/profile">设置</a>
+                    <a class="dropdown-item" href="/logout">退出</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/login">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <form action="/fabiao">
+            <button class="btn btn-outline-primary my-2 my-sm-0" href="/">发表</button>
+        </form>
+    </div>
+    {{ else }}
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand " href="#">
+            <img src="/public/img/dfmz.png" style="width: 40px;height: 40px;">
+    </a>
+        <a class="navbar-brand" href="#">Hidden brand</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Link</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/login">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <form action="/login">
+            <button class="btn btn-outline-danger my-2 my-sm-0" href="/login" style="margin-left: 5px;">登录</button>
+        </form>
+        <form action="/register"><button class="btn btn-outline-success my-2 my-sm-0" href="/register" style="margin-left: 5px;">注册</button>
+        </form>
+    </div>
+    {{ /if }}
+</nav>
